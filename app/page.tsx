@@ -4,9 +4,9 @@ import { useMemo, useState } from 'react'
 import { ArrowDown, Check, ChevronDown, CircleDollarSign, X } from 'lucide-react'
 
 const tokens = [
-  ['USDC', 'USD Coin'], ['USDT', 'Tether'], ['PYUSD', 'PayPal USD'], ['DAI', 'Dai'],
-  ['BTC', 'Bitcoin'], ['ETH', 'Ethereum'], ['SOL', 'Solana'], ['BNB', 'BNB'],
-  ['XRP', 'XRP'], ['TRX', 'TRON'], ['TON', 'Toncoin'], ['DOGE', 'Dogecoin'],
+  ['USDC', 'USD Coin', 'usdc'], ['USDT', 'Tether', 'usdt'], ['PYUSD', 'PayPal USD', 'pyusd'], ['DAI', 'Dai', 'dai'],
+  ['BTC', 'Bitcoin', 'btc'], ['ETH', 'Ethereum', 'eth'], ['SOL', 'Solana', 'sol'], ['BNB', 'BNB', 'bnb'],
+  ['XRP', 'XRP', 'xrp'], ['TRX', 'TRON', 'trx'], ['TON', 'Toncoin', 'ton'], ['DOGE', 'Dogecoin', 'doge'],
 ]
 
 export default function Page() {
@@ -71,7 +71,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="token-strip" aria-label="Supported tokens">{tokens.concat(tokens).map(([symbol, name], index) => <div className="token" key={`${symbol}-${index}`}><span className={`token-icon token-${symbol.toLowerCase()}`}>{symbol === 'BTC' ? '₿' : symbol === 'ETH' ? '◆' : symbol === 'SOL' ? '≋' : symbol.slice(0, 1)}</span><span><b>{symbol}</b><small>{name}</small></span></div>)}</section>
+      <section className="token-strip" aria-label="Supported tokens">{tokens.concat(tokens).map(([symbol, name, slug], index) => <div className="token" key={`${symbol}-${index}`}><span className={`token-icon token-${slug}`}><img src={`https://cdn.jsdelivr.net/gh/ErikThiart/cryptocurrency-icons@master/128/${slug}.png`} alt="" /></span><span><b>{symbol}</b><small>{name}</small></span></div>)}</section>
     </main>
   )
 }
